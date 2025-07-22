@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Microservices Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <h1 class="text-center mb-5 text-primary">Microservices Dashboard</h1>
+
+    <!-- Service Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5 class="card-title">User Services</h5>
+                    <a th:href="${user}" class="btn btn-outline-primary" target="_blank">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Product Services</h5>
+                    <a th:href="${product}" class="btn btn-outline-success" target="_blank">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Order Services</h5>
+                    <a th:href="${order}" class="btn btn-outline-warning" target="_blank">Open</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+            <div class="card text-center shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Eureka Dashboard</h5>
+                    <a th:href="${eurekaUrl}" class="btn btn-outline-danger" target="_blank">Open</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Info Cards -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Feign Clients</h5>
+                    <p class="card-text">
+                        The Order Microservice directly communicates with both Product and User Microservices using Feign Clients. This allows seamless REST API interaction without manual request handling.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">API Gateway Info</h5>
+                    <p class="card-text">
+                        All the URLs above are routed through the Spring Cloud API Gateway. This enables centralized routing and security for all microservice interactions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Flow Chart Card -->
+    <div class="card shadow mb-4">
+        <div class="card-body bg-white">
+            <h5 class="card-title text-center text-dark">Architecture Flow</h5>
+            <pre class="bg-light p-3 rounded">
+[Frontend Project - Spring MVC / React / Angular]
+            |
+            ↓
+[Spring Cloud API Gateway (localhost:8083)]
+            |
+    -------------------------------
+    |            |            |
+[User MS]   [Order MS]   [Product MS]
+            </pre>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

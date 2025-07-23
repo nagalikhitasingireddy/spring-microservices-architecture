@@ -8,4 +8,4 @@ RUN chmod +x mvnw
 
 RUN ./mvnw clean package -DskipTests
 
-CMD ["java", "-jar", "target/EurekaServer-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/Api_Gateway-0.0.1-SNAPSHOT.jar"]
